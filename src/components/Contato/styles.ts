@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  border-bottom: 1px solid #eee;
   color: #fff;
-  display: flex;
-  justify-content: space-between;
-  margin: 18px 45px;
-  padding-bottom: 18px;
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr 1fr;
+  margin: 0 40px;
+  padding: 16px;
+  border-radius: 14px;
+  align-items: start;
+
+  &:hover {
+    background-color: #494949;
+  }
 `;
 
 export const Pessoa = styled.div`
@@ -19,26 +24,98 @@ export const Avatar = styled.img`
   width: 55px;
 `;
 
-export const Nome = styled.h3`
+export const Nome = styled.input`
   font-size: 24px;
-  padding-left: 18px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-left: 4px;
+  font-weight: 400;
+  color: #fff;
+  background: none;
+  border: none;
 `;
 
-export const Apelido = styled.span`
+export const Apelido = styled.input`
   color: #a1a1a1;
   font-size: 16px;
   font-style: italic;
-  padding-left: 18px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-left: 4px;
+  background: none;
+  border: none;
 `;
 
-export const Numero = styled.p`
+export const Numero = styled.input`
   font-size: 18px;
+  padding-left: 4px;
+  margin-right: 16px;
+  color: #fff;
+  background: none;
+  border: none;
 `;
 
-export const Email = styled.p`
+export const Email = styled.input`
   font-size: 18px;
+  padding-left: 4px;
+  margin-right: 16px;
+  color: #fff;
+  background: none;
+  border: none;
 `;
 
-export const Acoes = styled.div``;
+export const BarraAcoes = styled.div`
+  height: 24px;
+  width: 24px;
+  display: flex;
+`;
+
+export const Edit = styled.button`
+  color: #d9d9d9;
+  border: none;
+  background: none;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const Save = styled.button`
+  color: #14df41;
+  border: none;
+  background: none;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const Remove = styled.button`
+  margin-left: 20px;
+  color: #e34545;
+  background: none;
+  border: none;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const Undo = styled.button`
+  margin-left: 20px;
+  color: #d9d9d9;
+  background: none;
+  border: none;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const Favorite = styled.button`
+  margin-left: 20px;
+  color: #d9d9d9;
+  background: none;
+  border: none;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
 
 export const Botao = styled.button``;

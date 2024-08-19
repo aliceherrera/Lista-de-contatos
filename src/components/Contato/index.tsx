@@ -1,15 +1,22 @@
 import { useState } from "react";
-import { MdCheck, MdDelete, MdEdit, MdFavorite, MdUndo } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import {
+  MdCheck,
+  MdDelete,
+  MdEdit,
+  // MdFavorite,
+  MdFavoriteBorder,
+  MdUndo,
+} from "react-icons/md";
+
 import * as S from "./styles";
+import { remover } from "../../store/reducers/contatos";
+import ContatoClass from "../../models/Contato";
 
-type Props = {
-  nome: string;
-  apelido: string;
-  numero: number;
-  email: string;
-};
+type Props = ContatoClass;
 
-const Contato = ({ apelido, nome, numero, email }: Props) => {
+const Contato = ({ apelido, nome, numero, email, id }: Props) => {
+  const dispatch = useDispatch();
   const [estaEditando, setEstaEditando] = useState(false);
 
   return (
@@ -35,17 +42,17 @@ const Contato = ({ apelido, nome, numero, email }: Props) => {
           </>
         ) : (
           <>
-            <S.Edit onClick={() => setEstaEditando(true)}>
+            <S.Botao onClick={() => setEstaEditando(true)}>
               <MdEdit />
-            </S.Edit>
-            <S.Remove>
+            </S.Botao>
+            <S.Remove onClick={() => dispatch(remover(id))}>
               <MdDelete />
             </S.Remove>
           </>
         )}
 
         <S.Favorite>
-          <MdFavorite />
+          <MdFavoriteBorder />
         </S.Favorite>
       </S.BarraAcoes>
     </S.Card>

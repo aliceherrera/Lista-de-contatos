@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import variaveis from "../../styles/variaveis";
 
 export const Card = styled.div`
-  color: #fff;
+  color: ${variaveis.cinzaClaro};
   display: grid;
   grid-template-columns: 3fr 1fr 2fr 1fr;
   margin: 0 40px;
@@ -10,7 +11,7 @@ export const Card = styled.div`
   align-items: start;
 
   &:hover {
-    background-color: #494949;
+    background-color: ${variaveis.cinzaMedio2};
   }
 `;
 
@@ -30,13 +31,13 @@ export const Nome = styled.input`
   margin-right: 16px;
   padding-left: 4px;
   font-weight: 400;
-  color: #fff;
+  color: ${variaveis.branco};
   background: none;
   border: none;
 `;
 
 export const Apelido = styled.input`
-  color: #a1a1a1;
+  color: ${variaveis.cinzaClaro};
   font-size: 16px;
   font-style: italic;
   margin-left: 16px;
@@ -50,7 +51,7 @@ export const Numero = styled.input`
   font-size: 18px;
   padding-left: 4px;
   margin-right: 16px;
-  color: #fff;
+  color: ${variaveis.branco};
   background: none;
   border: none;
 `;
@@ -59,7 +60,7 @@ export const Email = styled.input`
   font-size: 18px;
   padding-left: 4px;
   margin-right: 16px;
-  color: #fff;
+  color: ${variaveis.branco};
   background: none;
   border: none;
 `;
@@ -70,52 +71,28 @@ export const BarraAcoes = styled.div`
   display: flex;
 `;
 
-export const Edit = styled.button`
-  color: #d9d9d9;
+export const Botao = styled.button`
   border: none;
   background: none;
+  color: ${variaveis.cinzaClaro};
   &:hover {
     transform: scale(1.2);
   }
 `;
 
-export const Save = styled.button`
-  color: #14df41;
-  border: none;
-  background: none;
-  &:hover {
-    transform: scale(1.2);
-  }
+export const Save = styled(Botao)`
+  color: ${variaveis.verde};
 `;
 
-export const Remove = styled.button`
+export const Remove = styled(Botao)`
   margin-left: 20px;
-  color: #e34545;
-  background: none;
-  border: none;
-  &:hover {
-    transform: scale(1.2);
-  }
+  color: ${variaveis.vermelho};
 `;
 
-export const Undo = styled.button`
+export const Undo = styled(Botao)`
   margin-left: 20px;
-  color: #d9d9d9;
-  background: none;
-  border: none;
-  &:hover {
-    transform: scale(1.2);
-  }
 `;
 
-export const Favorite = styled.button`
+export const Favorite = styled(Botao)`
   margin-left: 20px;
-  color: #d9d9d9;
-  background: none;
-  border: none;
-  &:hover {
-    transform: scale(1.2);
-  }
 `;
-
-export const Botao = styled.button``;

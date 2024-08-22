@@ -1,14 +1,14 @@
 class Contato {
   nome: string;
   apelido: string;
-  numero: number;
+  numero: any;
   email: string;
   id: number;
 
   constructor(
     nome: string,
     apelido: string,
-    numero: number,
+    numero: any,
     email: string,
     id: number
   ) {

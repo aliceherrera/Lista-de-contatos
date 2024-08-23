@@ -10,3 +10,8 @@ export const Titulo = styled.h1`
   margin: 80px 40px 40px 56px;
   color: #d9d9d9;
 `;
+
+export const Busca = styled.p`
+  margin-left: 56px;
+  color: #d9d9d9;
+`;

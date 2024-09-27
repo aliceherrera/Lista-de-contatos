@@ -27,7 +27,7 @@ const Contato = ({
   const [estaEditando, setEstaEditando] = useState(false);
   const [apelido, setApelido] = useState("");
   const [nome, setNome] = useState("");
-  const [numero, setNumero] = useState();
+  const [numero, setNumero] = useState("");
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -57,6 +57,9 @@ const Contato = ({
   function cancelarEdicao() {
     setEstaEditando(false);
     setApelido(apelidoOriginal);
+    setEmail(emailOriginal);
+    setNome(nomeOriginal);
+    setNumero(numeroOriginal);
   }
 
   return (
@@ -78,10 +81,10 @@ const Contato = ({
       </S.Pessoa>
       <S.Numero
         as={IMaskInput}
-        mask="(00) 00000-0000"
+        mask={"(00)0000-0000"}
         disabled={!estaEditando}
         value={numero}
-        // onChange={(e) => setNumero(e.target.value)}
+        onChange={(e) => setNumero((e.target as HTMLInputElement).value)}
       />
       <S.Email
         disabled={!estaEditando}

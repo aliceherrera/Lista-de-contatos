@@ -56,6 +56,15 @@ export const Numero = styled.input`
   border: none;
 `;
 
+// export const Numero = styled.div`
+//   font-size: 18px;
+//   padding-left: 4px;
+//   margin-right: 16px;
+//   color: ${variaveis.branco};
+//   background: none;
+//   border: none;
+// `;
+
 export const Email = styled.input`
   font-size: 18px;
   padding-left: 4px;

@@ -20,26 +20,21 @@ const BarraLateral = () => {
           onChange={(e) => dispatch(alteraTermo(e.target.value))}
         />
         <S.Filtros>
-          <FiltroCard
-            criterio="todos"
-            ativo
-            icone={<MdLabel />}
-            categoria="Todos"
-          />
+          <FiltroCard criterio="todos" icone={<MdLabel />} categoria="Todos" />
           <FiltroCard
             valor={enums.Status.FAVORITO}
-            criterio="favorito"
+            criterio="status"
             icone={<MdFavorite />}
             categoria="Favoritos"
           />
           <FiltroCard
-            valor={enums.Categoria.TRABALHO}
+            valor={enums.Categorias.TRABALHO}
             criterio="categoria"
             icone={<MdWork />}
             categoria="Trabalho"
           />
           <FiltroCard
-            valor={enums.Categoria.FAMILIA}
+            valor={enums.Categorias.FAMILIA}
             criterio="categoria"
             icone={<MdHouse />}
             categoria="Família"

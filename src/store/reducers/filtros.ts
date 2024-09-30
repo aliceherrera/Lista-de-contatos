@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import * as enums from "../../utils/enums/Categoria";
-import { act } from "react";
 
 type filtroState = {
   termo?: string;
-  criterio: "categoria" | "favorito" | "todos";
-  valor?: enums.Categoria | enums.Status;
+  criterio: "categoria" | "status" | "todos";
+  valor?: enums.Categorias | enums.Status;
 };
 
 const initialState: filtroState = {

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Contato from "../../models/Contato";
+import * as enums from "../../utils/enums/Categoria";
 
 type ContatosState = {
   itens: Contato[];
@@ -13,6 +14,7 @@ const initialState: ContatosState = {
       apelido: "mila",
       numero: "11999999999",
       email: "camili.z@gmail.com",
+      categoria: enums.Categorias.FAMILIA,
     },
     {
       id: 2,
@@ -20,6 +22,8 @@ const initialState: ContatosState = {
       apelido: "folgada",
       numero: "11999999999",
       email: "afolgadadovalorant@gmail.com",
+      status: enums.Status.FAVORITO,
+      categoria: enums.Categorias.FAMILIA,
     },
     {
       id: 3,
@@ -27,6 +31,8 @@ const initialState: ContatosState = {
       apelido: "gusta",
       numero: "11999999999",
       email: "fer_gusta@gmail.com",
+      status: enums.Status.FAVORITO,
+      categoria: enums.Categorias.FAMILIA,
     },
     {
       id: 4,
@@ -34,6 +40,24 @@ const initialState: ContatosState = {
       apelido: "ryca",
       numero: "11999999999",
       email: "rycaassan@gmail.com",
+      status: enums.Status.FAVORITO,
+    },
+    {
+      id: 5,
+      nome: "Jennifer Lis",
+      apelido: "Lis",
+      numero: "11999999999",
+      email: "jenniferlis@gmail.com",
+      status: enums.Status.FAVORITO,
+      categoria: enums.Categorias.TRABALHO,
+    },
+    {
+      id: 6,
+      nome: "Sueli Rosana",
+      apelido: "soei",
+      numero: "11999999999",
+      email: "suelirosana@gmail.com",
+      categoria: enums.Categorias.TRABALHO,
     },
   ],
 };

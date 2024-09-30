@@ -1,4 +1,4 @@
-export enum Categoria {
+export enum Categorias {
   TRABALHO = "trabalho",
   FAMILIA = "familia",
 }

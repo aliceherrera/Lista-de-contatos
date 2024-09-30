@@ -36,7 +36,7 @@ const ListaDeNomes = () => {
   return (
     <S.Container>
       <S.Titulo>Lista de Contatos</S.Titulo>
-      <ul>
+      {/* <ul>
         <li>
           <S.Busca>{termo}</S.Busca>
         </li>
@@ -46,7 +46,7 @@ const ListaDeNomes = () => {
         <li>
           <S.Busca>{valor}</S.Busca>
         </li>
-      </ul>
+      </ul> */}
 
       <ul>
         {filtraTarefas().map((c) => (

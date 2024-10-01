@@ -80,9 +80,22 @@ const contatosSlice = createSlice({
         state.itens[indexDoContato] = action.payload;
       }
     },
+    cadastrar: (state, action: PayloadAction<Contato>) => {
+      const contatoJaExiste = state.itens.find(
+        (contato) =>
+          contato.nome.toLocaleLowerCase() ===
+          action.payload.nome.toLocaleLowerCase()
+      );
+
+      if (contatoJaExiste) {
+        alert("Já existe um contato com esse nome");
+      } else {
+        state.itens.push(action.payload);
+      }
+    },
   },
 });
 
-export const { remover, editar } = contatosSlice.actions;
+export const { remover, editar, cadastrar } = contatosSlice.actions;
 
 export default contatosSlice.reducer;

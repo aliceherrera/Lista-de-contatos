@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 
 import Contato from "../../components/Contato";
-import * as S from "./styles";
+import { MainContainer, Titulo } from "../../styles";
 
 const ListaDeNomes = () => {
   const { itens } = useSelector((state: RootReducer) => state.contatos);
@@ -34,20 +34,8 @@ const ListaDeNomes = () => {
   };
 
   return (
-    <S.Container>
-      <S.Titulo>Lista de Contatos</S.Titulo>
-      {/* <ul>
-        <li>
-          <S.Busca>{termo}</S.Busca>
-        </li>
-        <li>
-          <S.Busca>{criterio}</S.Busca>
-        </li>
-        <li>
-          <S.Busca>{valor}</S.Busca>
-        </li>
-      </ul> */}
-
+    <MainContainer>
+      <Titulo>Lista de Contatos</Titulo>
       <ul>
         {filtraTarefas().map((c) => (
           <li key={c.nome}>
@@ -63,7 +51,7 @@ const ListaDeNomes = () => {
           </li>
         ))}
       </ul>
-    </S.Container>
+    </MainContainer>
   );
 };
 

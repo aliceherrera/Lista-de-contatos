@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import variaveis from "../../styles/variaveis";
 
-export const Card = styled.div`
+export const Card = styled.label`
   color: ${variaveis.cinzaClaro};
   display: grid;
   grid-template-columns: 3fr 1fr 2fr 1fr;
@@ -102,6 +102,6 @@ export const Undo = styled(Botao)`
   margin-left: 20px;
 `;
 
-export const Favorite = styled(Botao)`
+export const Favorite = styled.input`
   margin-left: 20px;
 `;

@@ -96,9 +96,24 @@ const contatosSlice = createSlice({
         state.itens.push(action.payload);
       }
     },
+    alteraStatus: (
+      state,
+      action: PayloadAction<{ id: number; favorito: boolean }>
+    ) => {
+      const indexDoContato = state.itens.findIndex(
+        (c) => c.id === action.payload.id
+      );
+
+      if (indexDoContato >= 0) {
+        state.itens[indexDoContato].status = action.payload.favorito
+          ? enums.Status.FAVORITO
+          : enums.Status.NAOFAVORITO;
+      }
+    },
   },
 });
 
-export const { remover, editar, cadastrar } = contatosSlice.actions;
+export const { remover, editar, cadastrar, alteraStatus } =
+  contatosSlice.actions;
 
 export default contatosSlice.reducer;

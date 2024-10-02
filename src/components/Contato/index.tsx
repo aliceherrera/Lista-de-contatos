@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { IMaskInput } from "react-imask";
 import {
@@ -11,8 +11,9 @@ import {
 } from "react-icons/md";
 
 import * as S from "./styles";
-import { remover, editar } from "../../store/reducers/contatos";
+import { remover, editar, alteraStatus } from "../../store/reducers/contatos";
 import ContatoClass from "../../models/Contato";
+import * as enums from "../../utils/enums/Categoria";
 
 type Props = ContatoClass;
 
@@ -64,8 +65,17 @@ const Contato = ({
     setNumero(numeroOriginal);
   }
 
+  function alteraFavorito(evento: ChangeEvent<HTMLInputElement>) {
+    dispatch(
+      alteraStatus({
+        id,
+        favorito: evento.target.checked,
+      })
+    );
+  }
+
   return (
-    <S.Card>
+    <S.Card htmlFor={nome}>
       <S.Pessoa>
         <S.Avatar src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541" />
         <div>
@@ -128,10 +138,12 @@ const Contato = ({
             </S.Remove>
           </>
         )}
-
-        <S.Favorite>
-          <MdFavoriteBorder />
-        </S.Favorite>
+        <S.Favorite
+          checked={status === enums.Status.FAVORITO}
+          type="checkbox"
+          id={nome}
+          onChange={alteraFavorito}
+        />
       </S.BarraAcoes>
     </S.Card>
   );

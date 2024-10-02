@@ -19,3 +19,18 @@ export const Campo = styled.input`
   border-radius: 14px;
   border: none;
 `;
+
+export const Voltar = styled.button`
+  color: #fff;
+  background-color: #7f7f7f;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 14px 30px;
+  width: 100%;
+  border-radius: 14px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;

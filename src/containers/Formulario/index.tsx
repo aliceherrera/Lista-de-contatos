@@ -7,6 +7,7 @@ import * as S from "./styles";
 import * as enums from "../../utils/enums/Categoria";
 import Contato from "../../models/Contato";
 import { cadastrar } from "../../store/reducers/contatos";
+import { IMaskInput } from "react-imask";
 
 const Formulario = () => {
   const dispatch = useDispatch();
@@ -21,16 +22,25 @@ const Formulario = () => {
   const cadastrarContato = (evento: FormEvent) => {
     evento.preventDefault();
 
-    const contatoParaAdicionar = new Contato(
-      nome,
-      apelido,
-      numero,
-      email,
-      enums.Status.NAOFAVORITO,
-      categoria,
-      9
+    // const contatoParaAdicionar = new Contato(
+    //   nome,
+    //   apelido,
+    //   numero,
+    //   email,
+    //   enums.Status.NAOFAVORITO,
+    //   categoria,
+    //   1
+    // );
+    dispatch(
+      cadastrar({
+        nome,
+        apelido,
+        numero,
+        email,
+        status: enums.Status.NAOFAVORITO,
+        categoria,
+      })
     );
-    dispatch(cadastrar(contatoParaAdicionar));
     navigate("/");
   };
 
@@ -52,9 +62,13 @@ const Formulario = () => {
             placeholder="Apelido"
           />
           <S.Input
+            as={IMaskInput}
+            mask={"(00)0000-0000"}
             value={numero}
-            onChange={({ target }) => setNumero(target.value)}
-            type="number"
+            onChange={({ target }) =>
+              setNumero((target as HTMLInputElement).value)
+            }
+            type="any"
             placeholder="Telefone"
           />
           <S.Input

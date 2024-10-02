@@ -1,11 +1,11 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { IMaskInput } from "react-imask";
 import {
   MdCheck,
   MdDelete,
   MdEdit,
-  // MdFavorite,
+  MdFavorite,
   MdFavoriteBorder,
   MdUndo,
 } from "react-icons/md";
@@ -64,12 +64,23 @@ const Contato = ({
     setNome(nomeOriginal);
     setNumero(numeroOriginal);
   }
+  //  COM APARENCIA DE CHECK BOX *********
 
-  function alteraFavorito(evento: ChangeEvent<HTMLInputElement>) {
+  // function alteraFavorito(evento: ChangeEvent<HTMLInputElement>) {
+  //   dispatch(
+  //     alteraStatus({
+  //       id,
+  //       favorito: evento.target.checked,
+  //     })
+  //   );
+  // }
+
+  function alteraFavorito(evento: MouseEvent<HTMLButtonElement>) {
+    console.log(evento.target);
     dispatch(
       alteraStatus({
         id,
-        favorito: evento.target.checked,
+        favorito: true,
       })
     );
   }
@@ -138,12 +149,21 @@ const Contato = ({
             </S.Remove>
           </>
         )}
+
+        {/*
+         //  COM APARENCIA DE CHECK BOX **********
+
         <S.Favorite
           checked={status === enums.Status.FAVORITO}
           type="checkbox"
           id={nome}
           onChange={alteraFavorito}
-        />
+        /> */}
+
+        <S.Favorite type="button" onClick={alteraFavorito}>
+          {/* {alteraFavorito ? <MdFavoriteBorder /> : <MdFavorite />}*/}
+          <MdFavoriteBorder />
+        </S.Favorite>
       </S.BarraAcoes>
     </S.Card>
   );

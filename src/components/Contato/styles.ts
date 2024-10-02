@@ -102,6 +102,6 @@ export const Undo = styled(Botao)`
   margin-left: 20px;
 `;
 
-export const Favorite = styled.input`
+export const Favorite = styled(Botao)`
   margin-left: 20px;
 `;

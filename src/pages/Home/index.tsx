@@ -4,7 +4,7 @@ import ListaDeNomes from "../../containers/ListaDeNomes";
 
 const Home = () => (
   <>
-    <BarraLateral />
+    <BarraLateral mostrarFiltros />
     <ListaDeNomes />
     <BotaoAdicionar />
   </>

@@ -6,8 +6,8 @@ class Contato {
   numero: any;
   email: string;
   id: number;
-  status?: enums.Status;
-  categoria?: enums.Categorias;
+  status: enums.Status;
+  categoria: enums.Categorias;
 
   constructor(
     nome: string,

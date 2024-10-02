@@ -14,6 +14,7 @@ const initialState: ContatosState = {
       apelido: "mila",
       numero: "11999999999",
       email: "camili.z@gmail.com",
+      status: enums.Status.NAOFAVORITO,
       categoria: enums.Categorias.FAMILIA,
     },
     {
@@ -41,6 +42,7 @@ const initialState: ContatosState = {
       numero: "11999999999",
       email: "rycaassan@gmail.com",
       status: enums.Status.FAVORITO,
+      categoria: enums.Categorias.AMIGOS,
     },
     {
       id: 5,
@@ -57,7 +59,8 @@ const initialState: ContatosState = {
       apelido: "soei",
       numero: "11999999999",
       email: "suelirosana@gmail.com",
-      categoria: enums.Categorias.TRABALHO,
+      status: enums.Status.NAOFAVORITO,
+      categoria: enums.Categorias.OUTROS,
     },
   ],
 };

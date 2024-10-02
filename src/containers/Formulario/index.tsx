@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { MainContainer, Titulo } from "../../styles";
 import * as S from "./styles";
 import * as enums from "../../utils/enums/Categoria";
@@ -15,9 +16,7 @@ const Formulario = () => {
   const [apelido, setApelido] = useState("");
   const [numero, setNumero] = useState("");
   const [email, setEmail] = useState("");
-  const [trabalho, setTabalho] = useState(enums.Categorias.TRABALHO);
-  const [familia, setFamilia] = useState(enums.Categorias.FAMILIA);
-  const [favorito, setFavorito] = useState(enums.Status.FAVORITO);
+  const [categoria, setCategoria] = useState(enums.Categorias.OUTROS);
 
   const cadastrarContato = (evento: FormEvent) => {
     evento.preventDefault();
@@ -27,8 +26,8 @@ const Formulario = () => {
       apelido,
       numero,
       email,
-      enums.Status.FAVORITO,
-      enums.Categorias.FAMILIA,
+      enums.Status.NAOFAVORITO,
+      categoria,
       9
     );
     dispatch(cadastrar(contatoParaAdicionar));
@@ -67,28 +66,23 @@ const Formulario = () => {
         </S.Formulario>
         <S.Categoria>
           <S.Frase>Marcar contato como:</S.Frase>
-          <input
-            value={trabalho}
-            onChange={(e) =>
-              setTabalho(e.target.value as enums.Categorias.TRABALHO)
-            }
-            name="categoria"
-            type="checkbox"
-            id="trabalho"
-          />{" "}
-          <S.Label htmlFor="trabalho">Trabalho </S.Label>
-          <input
-            value={familia}
-            onChange={(e) =>
-              setFamilia(e.target.value as enums.Categorias.FAMILIA)
-            }
-            name="categoria"
-            type="checkbox"
-            id="familia"
-          />{" "}
-          <S.Label htmlFor="familia">Família</S.Label>
+          {Object.values(enums.Categorias).map((categoria) => (
+            <div key={categoria}>
+              <input
+                value={categoria}
+                name="categoria"
+                type="radio"
+                onChange={(evento) =>
+                  setCategoria(evento.target.value as enums.Categorias)
+                }
+                id={categoria}
+                defaultChecked={categoria === enums.Categorias.OUTROS}
+              />
+              <S.Label htmlFor={categoria}>{categoria}</S.Label>
+            </div>
+          ))}
         </S.Categoria>
-        <S.Categoria>
+        {/* <S.Categoria>
           <input
             value={favorito}
             onChange={(e) => setFavorito(e.target.value as enums.Status)}
@@ -96,7 +90,7 @@ const Formulario = () => {
             id="favorito"
           />{" "}
           <S.Label htmlFor="favorito">Adicionar contato aos favoritos</S.Label>
-        </S.Categoria>
+        </S.Categoria> */}
         <S.BotaoSalvar type="submit">Salvar</S.BotaoSalvar>
       </S.Container>
     </MainContainer>

@@ -21,6 +21,8 @@ const Contato = ({
   nome: nomeOriginal,
   numero: numeroOriginal,
   email: emailOriginal,
+  status,
+  categoria,
   id,
 }: Props) => {
   const dispatch = useDispatch();
@@ -96,7 +98,17 @@ const Contato = ({
           <>
             <S.Save
               onClick={() => {
-                dispatch(editar({ apelido, nome, numero, email, id }));
+                dispatch(
+                  editar({
+                    apelido,
+                    nome,
+                    numero,
+                    email,
+                    categoria,
+                    status,
+                    id,
+                  })
+                );
                 setEstaEditando(false);
               }}
             >

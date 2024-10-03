@@ -76,7 +76,7 @@ const Contato = ({
   // }
 
   function alteraFavorito(evento: MouseEvent<HTMLButtonElement>) {
-    console.log(evento.target);
+    console.log(evento);
     dispatch(
       alteraStatus({
         id,
@@ -104,7 +104,7 @@ const Contato = ({
       </S.Pessoa>
       <S.Numero
         as={IMaskInput}
-        mask={"(00)0000-0000"}
+        mask={"(00)00000-0000"}
         disabled={!estaEditando}
         value={numero}
         onChange={(e) => setNumero((e.target as HTMLInputElement).value)}

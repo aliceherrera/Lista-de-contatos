@@ -3,7 +3,9 @@ import {
   MdArrowBackIos,
   MdFavorite,
   MdHouse,
+  MdInsertEmoticon,
   MdLabel,
+  MdMoreHoriz,
   MdWork,
 } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -57,6 +59,18 @@ const BarraLateral = ({ mostrarFiltros }: Props) => {
                 criterio="categoria"
                 icone={<MdHouse />}
                 categoria="Família"
+              />
+              <FiltroCard
+                valor={enums.Categorias.AMIGOS}
+                criterio="categoria"
+                icone={<MdInsertEmoticon />}
+                categoria="Amigos"
+              />
+              <FiltroCard
+                valor={enums.Categorias.OUTROS}
+                criterio="categoria"
+                icone={<MdMoreHoriz />}
+                categoria="Outros"
               />
             </S.Filtros>
           </>

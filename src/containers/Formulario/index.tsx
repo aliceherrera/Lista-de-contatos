@@ -63,7 +63,7 @@ const Formulario = () => {
           />
           <S.Input
             as={IMaskInput}
-            mask={"(00)0000-0000"}
+            mask={"(00)00000-0000"}
             value={numero}
             onChange={({ target }) =>
               setNumero((target as HTMLInputElement).value)
@@ -105,7 +105,9 @@ const Formulario = () => {
           />{" "}
           <S.Label htmlFor="favorito">Adicionar contato aos favoritos</S.Label>
         </S.Categoria> */}
-        <S.BotaoSalvar type="submit">Salvar</S.BotaoSalvar>
+        <S.BotaoSalvar onClick={cadastrarContato} type="submit">
+          Salvar
+        </S.BotaoSalvar>
       </S.Container>
     </MainContainer>
   );
